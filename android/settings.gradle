@@ -1,0 +1,3 @@
+rootProject.name = 'Cheeseboard'
+
+include ':app'
