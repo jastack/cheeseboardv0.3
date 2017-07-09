@@ -70,6 +70,7 @@ export default class Home extends React.Component {
 
           <Image style={styles.image} source={require('../assets/homepage.png')} />
         </View>
+
         <ScrollView
           refreshControl={
             <RefreshControl
@@ -81,6 +82,9 @@ export default class Home extends React.Component {
               />
           }
           >
+          <Text style={styles.title}>
+            This Week's Pizza:
+          </Text>
           {this.displayPizza()}
         </ScrollView>
       </View>
@@ -110,15 +114,13 @@ const styles = StyleSheet.create({
     height: 300,
     margin: 0
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  title: {
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 30,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    fontSize: 20
   },
   htext: {
     marginTop: 20,

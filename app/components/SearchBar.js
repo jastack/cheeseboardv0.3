@@ -13,7 +13,7 @@ export default class SearchBar extends React.Component {
       backgroundColor: '#e6e6e6',
       marginLeft: '20%',
       marginRight: '20%',
-      textAlign: 'center',
+      textAlign: 'left',
       search: false
     };
   }
@@ -47,6 +47,6 @@ const styles = StyleSheet.create({
     width: '60%',
     marginTop: 27,
     borderRadius: 15,
-    paddingLeft: 10,
+    paddingLeft: 0,
   }
 });

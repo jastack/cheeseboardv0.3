@@ -8,3 +8,8 @@ react-native init Cheeseboard --version react-native@0.45.1
 ```
 
 The next thing I did was import all the components I have previously created in older versions of the Cheeseboard app. Then I set up react-native-vector-icons.
+
+```bash
+npm install react-native-vector-icons
+react-native link
+```
