@@ -3,14 +3,53 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView
+  ScrollView,
+  AppState
 } from 'react-native';
 import Alert from '../components/AlertCard';
+import PushController from '../components/PushController.js';
+import PushNotification from 'react-native-push-notification';
 
 export default class Alerts extends React.Component {
   constructor(props){
     super(props);
     this.removeAlert = this.removeAlert.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount(){
+    AppState.addEventListener('change', this.handleChange);
+  }
+
+  componentWillUnmount(){
+    AppState.removeEventListener('change', this.handleChange);
+  }
+
+  handleChange(appState){
+    if (appState === 'background'){
+      const date = this.getDate();
+      const address = 'https://cheeseboardapi.herokuapp.com/api/week/' + date;
+      fetch(address)
+      .then((response) => response.json())
+      .then((responseData) => {
+        const currentDate = new Date(Date.now());
+        const mins = 5;
+        currentDate.setMinutes(mins);
+        const pizza = responseData[0].pizza_type;
+        PushNotification.localNotification({
+          message: pizza,
+          number: 0
+        });
+      });
+    }
+  }
+
+  getDate(){
+    const date = new Date();
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    return year + "-" + month + "-" + day;
   }
 
   displayAlerts(){
@@ -55,7 +94,7 @@ export default class Alerts extends React.Component {
             {this.displayAlerts()}
           </View>
         </ScrollView>
-
+        <PushController />
       </View>
     );
   }
