@@ -29,11 +29,13 @@ export default class Ingredient extends React.Component {
       );
     } else {
       return (
-        <TouchableOpacity
-          style={styles.removeAlert}
-          onPress={this.removeAlert}>
-          <Text style={styles.button}>Remove Alert</Text>
-        </TouchableOpacity>
+        <View style={styles.margin}>
+          <TouchableOpacity
+            style={styles.removeAlert}
+            onPress={this.removeAlert}>
+            <Text style={styles.button}>Remove Alert</Text>
+          </TouchableOpacity>
+        </View>
       );
     }
   }
@@ -59,7 +61,8 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e6e6e6',
     borderBottomWidth: 1,
     backgroundColor: '#fff',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-between'
 
   },
   addAlert: {
@@ -68,15 +71,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   removeAlert: {
-    width: 90,
     borderRadius: 15,
     alignItems: 'center'
   },
   border: {
     backgroundColor: '#959860',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginRight: 30,
   },
   button: {
+    padding: 2,
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 12
@@ -86,6 +90,6 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginTop: 10,
     marginBottom: 10,
-    width: 200
+    width: 150
   }
 });

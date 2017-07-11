@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    width: 150,
   },
   removeAlert: {
     width: 90,

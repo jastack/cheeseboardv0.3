@@ -10,18 +10,28 @@ export default class SearchBar extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      textAlign: 'center'
     };
+  }
+
+  setTextAlign(){
+
   }
 
   render(){
     return(
       <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Search Cheeseboard"
-        value={this.state.text}
-        onChangeText={(text) => this.props.pizzaArray(text)}
-      />
+        <View>
+          <TextInput
+            style={styles.input}
+            clearButtonMode="while-editing"
+            placeholder="Search Cheeseboard"
+            keyboardAppearance="dark"
+            onFocus={this.setTextAlign}
+            value={this.state.text}
+            onChangeText={(text) => this.props.pizzaArray(text)}
+            />
+        </View>
       </View>
     );
   }
@@ -30,18 +40,16 @@ export default class SearchBar extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
   },
   input: {
     backgroundColor: '#e6e6e6',
-    marginLeft: '20%',
-    marginRight: '20%',
-    textAlign: 'left',
+    textAlign: 'center',
+    marginTop: 20,
     height: 30,
-    width: '60%',
-    marginTop: 27,
+    width: 200,
     borderRadius: 15,
-    paddingLeft: 10,
   }
 });

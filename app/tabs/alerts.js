@@ -18,7 +18,10 @@ export default class Alerts extends React.Component {
       return (
         <View style={styles.message}>
           <Text style={styles.alertHeader}>
-            Try searching for ingredients to add alerts!
+            Search for ingredients
+          </Text>
+          <Text style={styles.alertHeader}>
+            to add alerts!
           </Text>
         </View>
       );
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   headerText: {
-    marginTop: 40,
+    marginTop: 35,
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 30
