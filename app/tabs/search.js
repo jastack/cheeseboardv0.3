@@ -23,7 +23,11 @@ export default class Search extends React.Component {
       textAlign: 'center',
       search: false};
     this.pizzaArray = this.pizzaArray.bind(this);
+    this.addAlert = this.addAlert.bind(this);
+    this.removeAlert = this.removeAlert.bind(this);
   }
+
+
 
   pizzaArray(text){
     this.setState({text: text});
@@ -64,6 +68,14 @@ export default class Search extends React.Component {
     }
   }
 
+  alertControl(alert){
+    if (this.props.alerts.has(alert)){
+      return "remove alert";
+    } else {
+      return "add alert";
+    }
+  }
+
   displayIngredients(){
     if (this.state.pizza === "" || this.state.text === ""){
       return (
@@ -75,11 +87,22 @@ export default class Search extends React.Component {
     } else {
       const fourIngredients = this.state.ingredients.slice(0, 4);
       return (fourIngredients.map(
-        ingr => <Ingredient key={ingr.id} type={ingr.name} />
+        ingr => <Ingredient key={ingr.id}
+        type={ingr.name}
+        addAlert={this.addAlert}
+        alert={this.alertControl(ingr.name)}
+        removeAlert={this.removeAlert} />
       ));
     }
   }
 
+  addAlert(alert){
+    this.props.addAlert(alert);
+  }
+
+  removeAlert(alert){
+    this.props.removeAlert(alert);
+  }
 
   render(){
     return(
@@ -92,7 +115,7 @@ export default class Search extends React.Component {
         <View style={styles.search}>
           <SearchBar pizzaArray={this.pizzaArray}/>
         </View>
-        <ScrollView>
+        <ScrollView style={styles.scroll}>
           <View style={styles.ingredients}>
             {this.displayIngredients()}
           </View>
@@ -118,7 +141,8 @@ var styles = StyleSheet.create({
     marginTop: 10,
   },
   searchHeader: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#808080'
   },
   search: {
     flexDirection: 'row',
@@ -136,5 +160,8 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#e6e6e6',
+  },
+  scroll: {
+    width: '100%'
   }
 });

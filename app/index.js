@@ -15,10 +15,28 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default class App extends Component {
   constructor(props){
     super(props);
+    const initialAlert = new Set();
     this.state = {
-      selectedTabButton: 'home'
+      selectedTabButton: 'home',
+      alerts: initialAlert
     };
+    this.addAlert = this.addAlert.bind(this);
+    this.removeAlert = this.removeAlert.bind(this);
   }
+
+  addAlert(alert){
+    const alerts = this.state.alerts.add(alert);
+    this.setState({alerts: alerts});
+  }
+
+  removeAlert(alert){
+    const alerts = this.state.alerts;
+    alerts.delete(alert);
+    this.setState({alters: alerts});
+  }
+
+
+
   render() {
     return (
       <TabBarIOS selectedTab={this.state.selectedTabButton}>
@@ -38,7 +56,9 @@ export default class App extends Component {
           onPress={() => this.setState({selectedTabButton: 'search'})}
           selected={this.state.selectedTabButton === 'search'}
           >
-          <Search />
+          <Search addAlert={this.addAlert}
+            removeAlert={this.removeAlert}
+            alerts={this.state.alerts} />
 
         </Icon.TabBarItem>
 
@@ -48,7 +68,8 @@ export default class App extends Component {
           onPress={() => this.setState({selectedTabButton: 'alerts'})}
           selected={this.state.selectedTabButton === 'alerts'}
           >
-          <Alerts />
+          <Alerts alerts={this.state.alerts}
+            removeAlert={this.removeAlert} />
         </Icon.TabBarItem>
 
 
