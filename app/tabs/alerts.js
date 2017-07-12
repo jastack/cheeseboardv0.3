@@ -33,14 +33,28 @@ export default class Alerts extends React.Component {
       .then((response) => response.json())
       .then((responseData) => {
         const currentDate = new Date(Date.now());
-        const mins = 5;
+        const mins = 30;
+        const hours = 10;
         currentDate.setMinutes(mins);
+        currentDate.setHours(hours);
         const pizza = responseData[0].pizza_type;
-        PushNotification.localNotification({
+        this.alertLogic(pizza.toLowerCase(), currentDate);
+      });
+    }
+  }
+
+  alertLogic(pizza, date){
+    const set = this.props.alerts;
+    const alertsArray = Array.from(set);
+    for (var i = 0; i < alertsArray.length; i++) {
+      if (pizza.includes(alertsArray[i].toLowerCase())) {
+        PushNotification.localNotificationSchedule({
           message: pizza,
+          date: date,
           number: 0
         });
-      });
+        i = alertsArray.length;
+      }
     }
   }
 
