@@ -72,6 +72,7 @@ export default class Home extends React.Component {
         </View>
 
         <ScrollView
+          style={styles.scroll}
           automaticallyAdjustContentInsets={false}
           refreshControl={
             <RefreshControl
@@ -128,5 +129,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  scroll: {
+    marginBottom: 50
   }
 });

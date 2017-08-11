@@ -78,10 +78,10 @@ export default class Alerts extends React.Component {
             Search for ingredients
           </Text>
           <Text style={styles.alertHeader}>
-            to add alerts, or
+            to add alerts, or add
           </Text>
           <Text style={styles.alertHeader}>
-            add your own custom ones!
+            your own custom ones!
           </Text>
         </View>
       );

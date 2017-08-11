@@ -163,6 +163,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#e6e6e6',
   },
   scroll: {
-    width: '100%'
+    width: '100%',
+    marginBottom: 50
   }
 });
