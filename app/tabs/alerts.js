@@ -114,7 +114,8 @@ export default class Alerts extends React.Component {
         <View style={styles.header}>
           <Text style={styles.headerText}>Alerts</Text>
         </View>
-        <ScrollView style={styles.scroll}>
+        <ScrollView style={styles.scroll}
+          automaticallyAdjustContentInsets={false}>
           <View style={styles.alerts}>
             <AlertBar addAlert={this.addAlert}/>
             {this.displayAlerts()}

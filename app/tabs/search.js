@@ -115,7 +115,8 @@ export default class Search extends React.Component {
         <View style={styles.search}>
           <SearchBar pizzaArray={this.pizzaArray}/>
         </View>
-        <ScrollView style={styles.scroll}>
+        <ScrollView style={styles.scroll}
+          automaticallyAdjustContentInsets={false}>
           <View style={styles.ingredients}>
             {this.displayIngredients()}
           </View>

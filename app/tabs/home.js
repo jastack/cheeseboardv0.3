@@ -72,6 +72,7 @@ export default class Home extends React.Component {
         </View>
 
         <ScrollView
+          automaticallyAdjustContentInsets={false}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}
