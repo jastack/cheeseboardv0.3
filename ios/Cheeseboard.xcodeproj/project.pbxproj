@@ -36,6 +36,9 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2D976D76953B4AB582455485 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF5E8824904D4144832059C0 /* EvilIcons.ttf */; };
 		2DCD954D1E0B4F2C00145EB5 /* CheeseboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CheeseboardTests.m */; };
+		33586EC41F16BB4F00A02D62 /* libRNBackgroundFetch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33586EC21F16BB4600A02D62 /* libRNBackgroundFetch.a */; };
+		33586EC71F16BB6000A02D62 /* TSBackgroundFetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33586EC61F16BB6000A02D62 /* TSBackgroundFetch.framework */; };
+		33586EC91F16BB8800A02D62 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33586EC81F16BB8800A02D62 /* RNBackgroundFetch+AppDelegate.m */; };
 		33D9998E1F158AE40071F62E /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D999791F158AD60071F62E /* libRCTPushNotification.a */; };
 		53D42A350BC6433C85342F71 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44CEABBF29374771AB69A16D /* Zocial.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -120,6 +123,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "Cheeseboard-tvOS";
+		};
+		33586EC11F16BB4600A02D62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33586E9F1F16BB4600A02D62 /* RNBackgroundFetch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 835318541D52293F005738CD;
+			remoteInfo = RNBackgroundFetch;
 		};
 		33D999561F1578390071F62E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -300,6 +310,9 @@
 		2D02E47B1E0B4A5D006451C7 /* Cheeseboard-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheeseboard-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Cheeseboard-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cheeseboard-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEF6579F81146CEA1217E0F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		33586E9F1F16BB4600A02D62 /* RNBackgroundFetch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundFetch.xcodeproj; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch.xcodeproj"; sourceTree = "<group>"; };
+		33586EC61F16BB6000A02D62 /* TSBackgroundFetch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSBackgroundFetch.framework; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/TSBackgroundFetch.framework"; sourceTree = "<group>"; };
+		33586EC81F16BB8800A02D62 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
 		33D999691F158AD60071F62E /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		44CEABBF29374771AB69A16D /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		465576C4AA0549AEAA8E5F27 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -330,6 +343,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33586EC41F16BB4F00A02D62 /* libRNBackgroundFetch.a in Frameworks */,
+				33586EC71F16BB6000A02D62 /* TSBackgroundFetch.framework in Frameworks */,
 				33D9998E1F158AE40071F62E /* libRCTPushNotification.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -453,6 +468,7 @@
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				33586EC81F16BB8800A02D62 /* RNBackgroundFetch+AppDelegate.m */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -477,6 +493,22 @@
 				33D999591F1578390071F62E /* libdouble-conversion.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		33586EA01F16BB4600A02D62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33586EC21F16BB4600A02D62 /* libRNBackgroundFetch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33586EC51F16BB5F00A02D62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33586EC61F16BB6000A02D62 /* TSBackgroundFetch.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		33D999391F1578380071F62E /* Products */ = {
@@ -563,11 +595,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				33586E9F1F16BB4600A02D62 /* RNBackgroundFetch.xcodeproj */,
 				13B07FAE1A68108700A75B9A /* Cheeseboard */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* CheeseboardTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				6F058480612942B4B7BE1A82 /* Resources */,
+				33586EC51F16BB5F00A02D62 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -675,6 +709,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = H6S4628DPV;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -748,6 +787,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 33586EA01F16BB4600A02D62 /* Products */;
+					ProjectRef = 33586E9F1F16BB4600A02D62 /* RNBackgroundFetch.xcodeproj */;
+				},
+				{
 					ProductGroup = 33D999391F1578380071F62E /* Products */;
 					ProjectRef = AC69A2720F424F25B9F0051E /* RNVectorIcons.xcodeproj */;
 				},
@@ -817,6 +860,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		33586EC21F16BB4600A02D62 /* libRNBackgroundFetch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBackgroundFetch.a;
+			remoteRef = 33586EC11F16BB4600A02D62 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		33D999571F1578390071F62E /* libthird-party.a */ = {
@@ -1063,6 +1113,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33586EC91F16BB8800A02D62 /* RNBackgroundFetch+AppDelegate.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -1175,6 +1226,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = H6S4628DPV;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1198,6 +1250,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H6S4628DPV;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",

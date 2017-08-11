@@ -7,13 +7,17 @@ import {
   AppState
 } from 'react-native';
 import Alert from '../components/AlertCard';
-import PushController from '../components/PushController.js';
+import PushController from '../components/PushController';
+import BackgroundController from '../components/BackgroundController';
+import AlertBar from '../components/AlertBar';
 import PushNotification from 'react-native-push-notification';
+
 
 export default class Alerts extends React.Component {
   constructor(props){
     super(props);
     this.removeAlert = this.removeAlert.bind(this);
+    this.addAlert = this.addAlert.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -34,7 +38,7 @@ export default class Alerts extends React.Component {
       .then((responseData) => {
         const currentDate = new Date(Date.now());
         const mins = 30;
-        const hours = 10;
+        const hours = 13;
         currentDate.setMinutes(mins);
         currentDate.setHours(hours);
         const pizza = responseData[0].pizza_type;
@@ -74,7 +78,10 @@ export default class Alerts extends React.Component {
             Search for ingredients
           </Text>
           <Text style={styles.alertHeader}>
-            to add alerts!
+            to add alerts, or
+          </Text>
+          <Text style={styles.alertHeader}>
+            add your own custom ones!
           </Text>
         </View>
       );
@@ -95,6 +102,10 @@ export default class Alerts extends React.Component {
     this.props.removeAlert(alert);
   }
 
+  addAlert(alert){
+    this.props.addAlert(alert);
+  }
+
 
 
   render(){
@@ -105,10 +116,12 @@ export default class Alerts extends React.Component {
         </View>
         <ScrollView style={styles.scroll}>
           <View style={styles.alerts}>
+            <AlertBar addAlert={this.addAlert}/>
             {this.displayAlerts()}
           </View>
         </ScrollView>
         <PushController />
+        <BackgroundController alerts={this.props.alerts} />
       </View>
     );
   }
@@ -122,6 +135,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e6e6e6',
   },
   scroll: {
+    marginTop: 0,
     width: '100%'
   },
   message: {

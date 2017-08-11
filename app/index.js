@@ -69,6 +69,7 @@ export default class App extends Component {
           selected={this.state.selectedTabButton === 'alerts'}
           >
           <Alerts alerts={this.state.alerts}
+            addAlert={this.addAlert}
             removeAlert={this.removeAlert} />
         </Icon.TabBarItem>
 
