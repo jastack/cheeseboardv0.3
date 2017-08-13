@@ -68,7 +68,7 @@ export default class Home extends React.Component {
           />
         <View style={styles.header}>
 
-          <Image style={styles.image} source={require('../assets/homepage.png')} />
+          <Image style={styles.image} source={require('../assets/homepage.jpg')} />
         </View>
 
         <ScrollView

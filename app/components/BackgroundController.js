@@ -27,6 +27,8 @@ import { View } from 'react-native';
 //   }
 // };
 
+var alerts = [];
+
 export default class BackgroundController extends Component {
   constructor(props){
     super(props);
@@ -34,18 +36,34 @@ export default class BackgroundController extends Component {
   }
 
   componentDidMount(){
+    const set = this.props.alerts;
+    alerts = Array.from(set);
+
+
     BackgroundFetch.configure({
       stopOnTerminate: false
     }, function(){
+      console.log(alerts);
       const address = 'https://cheeseboardapi.herokuapp.com/api/week/2017-8-11';
       fetch(address)
         .then((response) => response.json())
         .then((responseData) => {
           const pizza = responseData[0].pizza_type;
-          PushNotification.localNotification({
-            message: pizza,
-            number: 0
-          });
+          const pizzaCheck = pizza.toLowerCase();
+          for (var i = 0; i < alerts.length; i++) {
+            if (pizzaCheck.includes(alerts[i].toLowerCase())){
+              PushNotification.localNotification({
+                message: pizza,
+                number: 0
+              });
+
+              i = alerts.length;
+            }
+          }
+
+        })
+        .catch(function(error){
+          console.log("There has been an error");
         });
 
       BackgroundFetch.finish();
