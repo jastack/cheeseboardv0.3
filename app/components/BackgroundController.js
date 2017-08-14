@@ -4,13 +4,13 @@ import PushController from './PushController';
 import PushNotification from 'react-native-push-notification';
 import { View } from 'react-native';
 
-// const getDate = function(){
-//   const date = new Date();
-//   const year = date.getFullYear();
-//   let month = date.getMonth() + 1;
-//   let day = date.getDate();
-//   return year + "-" + month + "-" + day;
-// };
+const getDate = function(){
+  const date = new Date();
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  return year + "-" + month + "-" + day;
+};
 //
 // const alertLogic = function(pizza, date, set){
 //   const alertsArray = Array.from(set);
@@ -28,6 +28,7 @@ import { View } from 'react-native';
 // };
 
 var alerts = [];
+var date = '';
 
 export default class BackgroundController extends Component {
   constructor(props){
@@ -43,21 +44,33 @@ export default class BackgroundController extends Component {
     BackgroundFetch.configure({
       stopOnTerminate: false
     }, function(){
-      console.log(alerts);
-      const address = 'https://cheeseboardapi.herokuapp.com/api/week/2017-8-11';
+
+      date = getDate();
+
+      console.log(date);
+
+      const address = 'https://cheeseboardapi.herokuapp.com/api/today/' + date;
       fetch(address)
         .then((response) => response.json())
         .then((responseData) => {
-          const pizza = responseData[0].pizza_type;
-          const pizzaCheck = pizza.toLowerCase();
-          for (var i = 0; i < alerts.length; i++) {
-            if (pizzaCheck.includes(alerts[i].toLowerCase())){
-              PushNotification.localNotification({
-                message: pizza,
-                number: 0
-              });
+          var pizza = '';
+          if (responseData[0] === null){
+            PushNotification.localNotification({
+              message: "No pizza today",
+              number: 0
+            })
+          } else {
+            pizza = responseData[0].pizza_type;
+            const pizzaCheck = pizza.toLowerCase();
+            for (var i = 0; i < alerts.length; i++) {
+              if (pizzaCheck.includes(alerts[i].toLowerCase())){
+                PushNotification.localNotification({
+                  message: pizza,
+                  number: 0
+                });
 
-              i = alerts.length;
+                i = alerts.length;
+              }
             }
           }
 
