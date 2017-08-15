@@ -72,13 +72,14 @@ export default class BackgroundController extends Component {
             const pizzaCheck = pizza.toLowerCase();
             for (var i = 0; i < alerts.length; i++) {
               if (pizzaCheck.includes(alerts[i].toLowerCase())){
+                console.log("Time to get pizza!");
                 PushNotification.localNotification({
                   message: pizza,
                   number: 0
                 });
 
                 i = alerts.length;
-              }
+              } 
             }
           }
 
@@ -118,11 +119,11 @@ export default class BackgroundController extends Component {
   //   BackgroundFetch.finish();
   // }
 
+  // <PushController />
 
   render(){
     return (
       <View>
-        <PushController />
       </View>
     );
   }
