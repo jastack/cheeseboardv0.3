@@ -36,10 +36,19 @@ export default class BackgroundController extends Component {
     this.state = {};
   }
 
+  // componentWillUnmount(){
+  //   const set = this.props.alerts;
+  //   alerts = Array.from(set);
+  // }
+
+  componentWillReceiveProps(){
+    const set = this.props.alerts;
+    alerts = Array.from(set);
+  }
+
   componentDidMount(){
     const set = this.props.alerts;
     alerts = Array.from(set);
-
 
     BackgroundFetch.configure({
       stopOnTerminate: false
@@ -47,18 +56,17 @@ export default class BackgroundController extends Component {
 
       date = getDate();
 
-      console.log(date);
-
       const address = 'https://cheeseboardapi.herokuapp.com/api/today/' + date;
+
       fetch(address)
         .then((response) => response.json())
         .then((responseData) => {
           var pizza = '';
-          if (responseData[0] === null){
+          if (responseData.length < 1){
             PushNotification.localNotification({
-              message: "No pizza today",
+              message: "No good pizza today",
               number: 0
-            })
+            });
           } else {
             pizza = responseData[0].pizza_type;
             const pizzaCheck = pizza.toLowerCase();
@@ -76,7 +84,7 @@ export default class BackgroundController extends Component {
 
         })
         .catch(function(error){
-          console.log("There has been an error");
+          console.log(error);
         });
 
       BackgroundFetch.finish();

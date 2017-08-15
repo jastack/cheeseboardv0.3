@@ -16,59 +16,65 @@ import PushNotification from 'react-native-push-notification';
 export default class Alerts extends React.Component {
   constructor(props){
     super(props);
+
     this.removeAlert = this.removeAlert.bind(this);
     this.addAlert = this.addAlert.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount(){
-    AppState.addEventListener('change', this.handleChange);
-  }
+  // componentDidMount(){
+  //   console.log(this.props.alerts);
+  //   // this.setState({alerts: this.props.alerts});
+  //   // AppState.addEventListener('change', this.handleChange);
+  // }
+  //
+  // componentWillUnmount(){
+  //   console.log("Alerts page unmounted!");
+  //   // this.setState({alerts: this.props.alerts});
+  //   // AppState.removeEventListener('change', this.handleChange);
+  // }
 
-  componentWillUnmount(){
-    AppState.removeEventListener('change', this.handleChange);
-  }
 
-  handleChange(appState){
-    if (appState === 'background'){
-      const date = this.getDate();
-      const address = 'https://cheeseboardapi.herokuapp.com/api/week/' + date;
-      fetch(address)
-      .then((response) => response.json())
-      .then((responseData) => {
-        const currentDate = new Date(Date.now());
-        const mins = 30;
-        const hours = 13;
-        currentDate.setMinutes(mins);
-        currentDate.setHours(hours);
-        const pizza = responseData[0].pizza_type;
-        this.alertLogic(pizza.toLowerCase(), currentDate);
-      });
-    }
-  }
+  // handleChange(appState){
+  //   if (appState === 'background'){
+  //     const date = this.getDate();
+  //     const address = 'https://cheeseboardapi.herokuapp.com/api/week/' + date;
+  //     fetch(address)
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //       const currentDate = new Date(Date.now());
+  //       const mins = 30;
+  //       const hours = 13;
+  //       currentDate.setMinutes(mins);
+  //       currentDate.setHours(hours);
+  //       const pizza = responseData[0].pizza_type;
+  //       this.alertLogic(pizza.toLowerCase(), currentDate);
+  //     });
+  //   }
+  // }
+  //
+  // alertLogic(pizza, date){
+  //   const set = this.props.alerts;
+  //   const alertsArray = Array.from(set);
+  //   for (var i = 0; i < alertsArray.length; i++) {
+  //     if (pizza.includes(alertsArray[i].toLowerCase())) {
+  //       PushNotification.localNotificationSchedule({
+  //         message: pizza,
+  //         date: date,
+  //         number: 0
+  //       });
+  //       i = alertsArray.length;
+  //     }
+  //   }
+  // }
 
-  alertLogic(pizza, date){
-    const set = this.props.alerts;
-    const alertsArray = Array.from(set);
-    for (var i = 0; i < alertsArray.length; i++) {
-      if (pizza.includes(alertsArray[i].toLowerCase())) {
-        PushNotification.localNotificationSchedule({
-          message: pizza,
-          date: date,
-          number: 0
-        });
-        i = alertsArray.length;
-      }
-    }
-  }
-
-  getDate(){
-    const date = new Date();
-    const year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    return year + "-" + month + "-" + day;
-  }
+  // getDate(){
+  //   const date = new Date();
+  //   const year = date.getFullYear();
+  //   let month = date.getMonth() + 1;
+  //   let day = date.getDate();
+  //   return year + "-" + month + "-" + day;
+  // }
 
   displayAlerts(){
     if (this.props.alerts.size < 1){
@@ -121,7 +127,6 @@ export default class Alerts extends React.Component {
             {this.displayAlerts()}
           </View>
         </ScrollView>
-        <PushController />
         <BackgroundController alerts={this.props.alerts} />
       </View>
     );
